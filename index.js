@@ -5,6 +5,14 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 
 client.on('messageCreate', (message) =>{
     if(message.author.bot) return;
+    // Short URL Handling
+    if(message.content.startsWith("create")){
+        const url = message.content.split("create")[1];
+        return message.reply({
+            content: "Generating short Url " + url,
+        });
+    }
+    // Normal reply from Bot
     message.reply({
         content: "Hi from Sparsh's Bot!!",
     });
@@ -14,6 +22,7 @@ client.on(Events.ClientReady, readyclient =>{
     console.log(`Logged in as ${readyclient.user.tag}!`);
 });
 
+// Interaction Create to use commands
 client.on('interactionCreate', (interaction) =>{
     interaction.reply("Pong!!");
 });

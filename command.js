@@ -4,11 +4,16 @@ const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 
 
-const commands = [
-    {
+const commands = [{
         name: "ping",
         description: "replies with pong",
-    },   
+    },
+    // Registering new command for Short Url generation 
+    {
+        name: "create",
+        description: "create a short URL",
+    },
+
 ];
 
 // IIFE = Immediately invoked function Expression called
@@ -27,4 +32,7 @@ const rest = new REST({version: '10'}).setToken(TOKEN);
     }
 
 }) ();
+
+
+
 
